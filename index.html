@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shahith Auto Spares | TVS Spare Parts</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top-header">
+    <div class="logo">Shahith Auto Spares</div>
+    <input type="text" id="searchBox" placeholder="Search spare part..." onkeyup="searchParts()">
+</header>
+
+<div class="container">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <h3>TVS Models</h3>
+        <select id="bikeModel" onchange="showParts()">
+            <option value="">Select Model</option>
+            <option value="apache">TVS Apache</option>
+            <option value="jupiter">TVS Jupiter</option>
+            <option value="ntorq">TVS Ntorq</option>
+            <option value="raider">TVS Raider 125</option>
+            <option value="sport">TVS Sport</option>
+            <option value="xl100">TVS XL100</option>
+        </select>
+
+        <h3>Category</h3>
+        <select id="category" onchange="filterCategory()">
+            <option value="">All</option>
+            <option value="Engine">Engine</option>
+            <option value="Brake">Brake</option>
+            <option value="Electrical">Electrical</option>
+        </select>
+    </aside>
+
+    <!-- CONTENT -->
+    <main class="content">
+        <h2>TVS Spare Parts Price List</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Part Name</th>
+                    <th>Part Code</th>
+                    <th>Category</th>
+                    <th>Price (₹)</th>
+                </tr>
+            </thead>
+            <tbody id="partsTable"></tbody>
+        </table>
+    </main>
+</div>
+
+<footer>
+    © 2026 Shahith Auto Spares | Free Website
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
