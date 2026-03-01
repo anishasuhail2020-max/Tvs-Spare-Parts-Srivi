@@ -1,0 +1,62 @@
+let allParts = [];
+
+const data = {
+    apache: [
+        {name:"Brake Pad", code:"AP001", cat:"Brake", price:450},
+        {name:"Clutch Plate", code:"AP002", cat:"Engine", price:950},
+        {name:"Oil Filter", code:"AP003", cat:"Engine", price:180}
+    ],
+    jupiter: [
+        {name:"Drive Belt", code:"JP001", cat:"Engine", price:1200},
+        {name:"Brake Shoe", code:"JP002", cat:"Brake", price:350},
+        {name:"Headlight Bulb", code:"JP003", cat:"Electrical", price:150}
+    ],
+    ntorq: [
+        {name:"Disc Pad", code:"NT001", cat:"Brake", price:480},
+        {name:"CVT Belt", code:"NT002", cat:"Engine", price:1400},
+        {name:"Spark Plug", code:"NT003", cat:"Electrical", price:120}
+    ],
+    raider: [
+        {name:"Oil Filter", code:"RD001", cat:"Engine", price:190},
+        {name:"Disc Pad", code:"RD002", cat:"Brake", price:520}
+    ],
+    sport: [
+        {name:"Chain Kit", code:"SP001", cat:"Engine", price:1600},
+        {name:"Brake Cable", code:"SP002", cat:"Brake", price:90}
+    ],
+    xl100: [
+        {name:"Air Filter", code:"XL001", cat:"Engine", price:200},
+        {name:"Spark Plug", code:"XL002", cat:"Electrical", price:110}
+    ]
+};
+
+function showParts() {
+    const model = document.getElementById("bikeModel").value;
+    allParts = data[model] || [];
+    display(allParts);
+}
+
+function filterCategory() {
+    const cat = document.getElementById("category").value;
+    if (!cat) display(allParts);
+    else display(allParts.filter(p => p.cat === cat));
+}
+
+function searchParts() {
+    const q = document.getElementById("searchBox").value.toLowerCase();
+    display(allParts.filter(p => p.name.toLowerCase().includes(q)));
+}
+
+function display(parts) {
+    const table = document.getElementById("partsTable");
+    table.innerHTML = "";
+    parts.forEach(p => {
+        table.innerHTML += `
+            <tr>
+                <td>${p.name}</td>
+                <td>${p.code}</td>
+                <td>${p.cat}</td>
+                <td>₹${p.price}</td>
+            </tr>`;
+    });
+      }
