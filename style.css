@@ -59,4 +59,4 @@ function display(parts) {
                 <td>₹${p.price}</td>
             </tr>`;
     });
-      }
+        }
